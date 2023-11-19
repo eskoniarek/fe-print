@@ -35,7 +35,7 @@ export const CookieConsent = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 p-4 bg-teal-900 text-white flex items-center justify-between">
-      <div className="max-w-screen-lg mx-auto flex items-center">
+      <div className="max-w-screen-md mx-auto flex items-center">
         <p className="flex-grow">
           We use cookies and other tracking technologies to improve your browsing experience on our website, to show you personalized content and targeted ads, to analyze our website traffic, and to understand where our visitors are coming from.
         </p>
@@ -46,7 +46,7 @@ export const CookieConsent = () => {
           >
             Accept
           </button>
-          <Link href="/cookies-policy">
+          <Link href={'/cc'}>
             <a className="text-white underline">Learn more</a>
           </Link>
         </div>
