@@ -1,5 +1,6 @@
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
+import { CookieConsent } from "@modules/home/components/cookiesConsent"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ const Home = () => {
     <>
       <Hero />
       <FeaturedProducts />
+      <CookieConsent />
     </>
   )
 }
