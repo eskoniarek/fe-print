@@ -4,6 +4,8 @@ import clsx from "clsx"
 import React from "react"
 import PaymentStripe from "../payment-stripe"
 import PaymentTest from "../payment-test"
+import PaymentPaycoreHPP from "../payment-paycore-hpp";
+
 
 type PaymentContainerProps = {
   paymentSession: PaymentSession
@@ -28,6 +30,10 @@ const PaymentInfoMap: Record<string, { title: string; description: string }> = {
   manual: {
     title: "Test payment",
     description: "Test payment using medusa-payment-manual",
+  },
+  paycore: {
+    title: "Paycore HPP",
+    description: "Secure payment via Paycore Hosted Payment Page",
   },
 }
 
@@ -82,6 +88,12 @@ const PaymentElement = ({
           <PaymentStripe />
         </div>
       )
+      case "paycore":
+        return (
+          <div className="pt-8 pr-7">
+        <PaymentPaycoreHPP />
+        </div>
+        ) 
     case "manual":
       // We only display the test payment form if we are in a development environment
       return process.env.NODE_ENV === "development" ? <PaymentTest /> : null
