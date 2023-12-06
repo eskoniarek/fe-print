@@ -25,7 +25,7 @@ const CheckoutTemplate = () => {
               </>
             </Link>
             <Link href="/" className="text-xl-semi">
-              Print Inc
+              TestingAI
             </Link>
             <div className="flex-1 basis-0" />
           </nav>

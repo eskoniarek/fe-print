@@ -1,3 +1,5 @@
+
+
 const { withStoreConfig } = require("./store-config")
 const store = require("./store.config.json")
 
@@ -19,6 +21,14 @@ module.exports = withStoreConfig({
       {
         protocol: "https",
         hostname: "store-diet.s3.eu-north-1.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "medusa-server-testing.s3.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
       },
     ],
   },

@@ -24,7 +24,7 @@ const Hero = () => {
         className="absolute inset-0"
         draggable="false"
         fill
-        sizes="100vw"
+        sizes="75vw"
         style={{
           objectFit: "cover",
         }}

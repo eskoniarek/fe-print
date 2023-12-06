@@ -3,7 +3,7 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Profile",
-  description: "View and edit your Print Inc profile.",
+  description: "View and edit your TestingAI profile.",
 }
 
 export default function Profile() {

@@ -6,15 +6,23 @@ import CartDropdown from "@modules/layout/components/cart-dropdown"
 import DropdownMenu from "@modules/layout/components/dropdown-menu"
 import MobileMenu from "@modules/mobile-menu/templates"
 import DesktopSearchModal from "@modules/search/templates/desktop-search-modal"
+import SideMenu from "@modules/layout/components/side-menu"
 import clsx from "clsx"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
+import useToggleState from "lib/hooks/use-toggle-state"
 
 const Nav = () => {
   const pathname = usePathname()
   const [isHome, setIsHome] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
+
+  const {
+    state: searchModalState,
+    close: searchModalClose,
+    open: searchModalOpen,
+  } = useToggleState()
 
   //useEffect that detects if window is scrolled > 5px on the Y axis
   useEffect(() => {
@@ -68,13 +76,13 @@ const Nav = () => {
               <Hamburger setOpen={toggle} />
             </div>
             <div className="hidden small:block h-full">
-              <DropdownMenu />
+            <SideMenu searchModalOpen={searchModalOpen} />
             </div>
           </div>
 
           <div className="flex items-center h-full">
             <Link href="/" className="text-xl-semi uppercase">
-              Print Inc
+              TestingAI
             </Link>
           </div>
 

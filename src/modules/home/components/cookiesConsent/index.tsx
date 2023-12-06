@@ -39,7 +39,7 @@ export const CookieConsent = () => {
             Accept
           </button>
           <Link href={'/cc'}>
-            <a className="text-white underline text-sm sm:text-base">Learn more</a>
+          <p>Learn more</p>
           </Link>
         </div>
       </div>
