@@ -4,6 +4,7 @@ import clsx from "clsx"
 import { useCollections, useProductCategories } from "medusa-react"
 import Link from "next/link"
 import CountrySelect from "../country-select"
+import Image from "next/image"
 
 const FooterNav = () => {
   const { collections } = useCollections()
@@ -18,7 +19,7 @@ const FooterNav = () => {
           </Link>
           <section className="flex justify-center items-center space-x-6 hover:scale-105 transition-transform duration-200 border-2 border-transparent hover:border-gray-400 dark:hover:border-gray-600">
  <div className="flex items-center">
-   <img
+   <Image
      alt="MA"
      className="aspect-[2/1] overflow-hidden rounded-lg object-contain object-center"
      height="156"
@@ -27,7 +28,7 @@ const FooterNav = () => {
    />
  </div>
  <div className="flex items-center">
-   <img
+   <Image
      alt="V"
      className="aspect-[2/1] overflow-hidden rounded-lg object-contain object-center"
      height="198"

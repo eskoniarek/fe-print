@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Button from "modules/common/components/button"
+import Image from "next/image";
 
 export default function ContactTemplate() {
   return (
@@ -39,7 +40,7 @@ export default function ContactTemplate() {
             </div>
           </div>
           <div className="flex justify-center items-center">
-            <img
+            <Image
               alt="Artistic digital creation"
               className="max-w-full h-auto"
               height="400"

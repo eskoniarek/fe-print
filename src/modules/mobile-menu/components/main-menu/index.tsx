@@ -72,6 +72,30 @@ const MainMenu = () => {
                 </button>
               </Link>
             </li>
+            <li className="bg-gray-50 p-4">
+    <Link href="/about">
+      <button
+        className="flex items-center justify-between w-full"
+        onClick={close}
+      >
+        <span className="sr-only">Go to About Us</span>
+        <span>About Us</span>
+        <ChevronDown className="-rotate-90" />
+      </button>
+    </Link>
+  </li>
+  <li className="bg-gray-50 p-4">
+    <Link href="/contact">
+      <button
+        className="flex items-center justify-between w-full"
+        onClick={close}
+      >
+        <span className="sr-only">Go to Contact</span>
+        <span>Contact Us</span>
+        <ChevronDown className="-rotate-90" />
+      </button>
+    </Link>
+  </li>
             {collections ? (
               <>
                 {collections.map((collection) => (
@@ -94,7 +118,7 @@ const MainMenu = () => {
             ) : null}
           </ul>
         </div>
-
+        
         <div className="flex flex-col">
           <div className="flex flex-col gap-y-8 text-small-regular">
             {!customer ? (
