@@ -2,6 +2,7 @@
 import React from "react";
 import Button from "modules/common/components/button"
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ContactTemplate() {
   return (
@@ -34,8 +35,11 @@ export default function ContactTemplate() {
               vision to life, sustainably and beautifully.
             </p>
             <div className="text-center mt-6">
+              
               <Button className="mt-2" variant="primary">
+              <Link href="https://op-app.co/">
                 TestingAI - Learn More
+                </Link>
               </Button>
             </div>
           </div>

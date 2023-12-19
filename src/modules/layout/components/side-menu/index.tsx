@@ -1,4 +1,4 @@
-import Link from "next/link"
+ import Link from "next/link"
 import { Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
 import { XMark, ArrowRightMini } from "@medusajs/icons"
@@ -29,7 +29,7 @@ const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
           {({ open, close }) => (
             <>
               <div className="relative flex h-full">
-                <Popover.Button className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
+                <Popover.Button className="relative h-50 flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
                   Menu
                 </Popover.Button>
               </div>
