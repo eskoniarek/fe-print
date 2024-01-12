@@ -22,8 +22,8 @@ export default function ContactTemplate() {
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-regular">Email</h3>
-                  <Link className="text-slate-700 hover:text-teal-900 underline-offset-2" href="mailto:info@testingAI.com">
-                      info@testingAI.com
+                  <Link className="text-slate-700 hover:text-teal-900 underline-offset-2" href="mailto:info@Printinc.com">
+                      info@Printinc.com
                   </Link>
                 </div>
                 <div className="space-y-2">

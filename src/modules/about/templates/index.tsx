@@ -31,14 +31,14 @@ export default function ContactTemplate() {
             </p>
             <p className="mb-4">
               Join us in this journey of artistic exploration and environmental stewardship. Whether it's through our
-              curated collection of digital prints or your own creations on TestingAI, we're here to bring your artistic
+              curated collection of digital prints or your own creations on Printinc, we're here to bring your artistic
               vision to life, sustainably and beautifully.
             </p>
             <div className="text-center mt-6">
               
               <Button className="mt-2" variant="primary">
-              <Link href="https://op-app.co/">
-                TestingAI - Learn More
+              <Link href="https://dev.op-app.co/">
+                Printinc - Learn More
                 </Link>
               </Button>
             </div>

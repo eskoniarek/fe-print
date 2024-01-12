@@ -13,7 +13,7 @@ const FooterCTA = () => {
           <br/>
           <h3 className="text-2xl-regular">...or desing art by yourself! </h3>
  <div className="mt-6">
-   <UnderlineLink href="https://op-app.co/">TestingAI</UnderlineLink>
+   <UnderlineLink href="https://dev.op-app.co/">Printinc AI</UnderlineLink>
  </div>
         </div>
 
