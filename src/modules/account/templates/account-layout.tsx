@@ -39,7 +39,7 @@ const AccountLayout: React.FC = ({ children }) => {
             </span>
           </div>
           <div>
-            <UnderlineLink href="/customer-service">
+            <UnderlineLink href="/contact">
               Customer Service
             </UnderlineLink>
           </div>
