@@ -9,7 +9,7 @@ const Hero = () => {
           Discover bold artistry with PrintInc's latest in Art and Photography
         </h1>
         <p className="text-base-regular max-w-[32rem] mb-6 drop-shadow-md shadow-black">
-          Designs that define your space with style and imagination. Prepare to be enchanted."
+          Designs that define your space with style and imagination. Prepare to be enchanted.
         </p>
         <UnderlineLink href="/store">Explore products</UnderlineLink>
       </div>
