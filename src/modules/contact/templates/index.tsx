@@ -15,21 +15,24 @@ export default function ContactTemplate() {
                 <div className="space-y-2">
                   <h3 className="text-xl font-regular">Address</h3>
                   <p className="text-slate-700 dark:text-slate-700">
-                    1234 Main Street, Suite 500
+                    APPLIED BUSINESS LTD
+                    Company number 12815106
+
+                    7 Bell Yard, London, 
                     <br />
-                    Latvia, Riga
+                    England, WC2A 2JR
                   </p>
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-regular">Email</h3>
                   <Link className="text-slate-700 hover:text-teal-900 underline-offset-2" href="mailto:info@Printinc.com">
-                      info@Printinc.com
+                      support@printinc.shop
                   </Link>
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-regular">Phone</h3>
                   <Link className="text-slate-700 hover:text-teal-900 underline-offset-2" href="tel:+370234567890">
-                      +370 (234) 567-890
+                      01767 677071
                   </Link>
                 </div>
               </div>
