@@ -99,11 +99,11 @@ const Register = () => {
         )}
         <span className="text-center text-gray-700 text-small-regular mt-6">
           By creating an account, you agree to Printinc&apos;s{" "}
-          <Link href="/content/privacy-policy" className="underline">
+          <Link href="/pp" className="underline">
             Privacy Policy
           </Link>{" "}
           and{" "}
-          <Link href="/content/terms-of-use" className="underline">
+          <Link href="/tc" className="underline">
             Terms of Use
           </Link>
           .
