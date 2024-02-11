@@ -17,9 +17,8 @@ export function Map () {
             const {Map} = await loader.importLibrary('maps'); // Access the google object after the library is loaded
 
             const position = {
-            lat: 51.51439926949348,
-            lng: 0.11182323109016716
-};
+                lat: 51.514399,
+                lng: -0.111823};
 
             const mapOptions: google.maps.MapOptions = {
                 center: position,
