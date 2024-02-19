@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from "next/link";
-import Button from "../../common/components/button";
+import Link from "next/link"
+import Button from '@modules/common/components/button';
 import { Map } from '../components/map';
 
 export default function ContactTemplate() {
@@ -35,51 +35,18 @@ export default function ContactTemplate() {
                       01767 677071
                   </Link>
                 </div>
+                <div className="space-y-2">
+                <h3 className="text-xl font-regular">Support</h3>
+                <div className="flex justify-left">
+        <Link href={`mailto:support@printinc.shop`}>
+          <Button variant="primary">Get in touch</Button>
+        </Link>
+      </div>
+      </div>
               </div>
             </div>
             <div className="mt-8 aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md">
               <Map />
-            </div>
-            <div className="space-y-4 mt-12">
-              <h2 className="text-2xl font-medium tracking-tighter">Get in Touch</h2>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-slate-900 dark:text-slate-700" htmlFor="name">
-                    Your Name
-                  </label>
-                  <input
-                    className="mt-1 block w-full rounded-md border-slate-800 bg-white shadow-sm focus:border-slate-600 focus:ring focus:ring-slate-300 focus:ring-opacity-50"
-                    id="name"
-                    name="name"
-                    type="text"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-900 dark:text-slate-700" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    className="mt-1 block w-full rounded-md border-slate-800 bg-white shadow-sm focus:border-slate-600 focus:ring focus:ring-slate-300 focus:ring-opacity-50"
-                    id="email"
-                    name="email"
-                    type="email"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-700" htmlFor="message">
-                    Message
-                  </label>
-                  <textarea
-                    className="mt-1 block w-full rounded-md border-slate-800 bg-white shadow-sm focus:border-slate-600 focus:ring focus:ring-slate-300 focus:ring-opacity-50"
-                    id="message"
-                    name="message"
-                    rows={3}
-                  />
-                </div>
-                <Button className="bg-grey-900 hover:bg-grey-800 text-white px-4 py-2 rounded-md" type="submit">
-                  Submit
-                </Button>
-              </form>
             </div>
           </div>
         </section>

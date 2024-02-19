@@ -1,103 +1,67 @@
-import { medusaClient } from "@lib/config"
 import { LOGIN_VIEW, useAccount } from "@lib/context/account-context"
 import Button from "@modules/common/components/button"
 import Input from "@modules/common/components/input"
-import Spinner from "@modules/common/icons/spinner"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FieldValues, useForm } from "react-hook-form"
 
 interface RegisterCredentials extends FieldValues {
-  first_name: string
-  last_name: string
   email: string
-  password: string
-  phone?: string
 }
 
 const Register = () => {
-  const { loginView, refetchCustomer } = useAccount()
+  const { loginView } = useAccount()
   const [_, setCurrentView] = loginView
   const [authError, setAuthError] = useState<string | undefined>(undefined)
-  const router = useRouter()
-
-  const handleError = (e: Error) => {
-    setAuthError("An error occured. Please try again.")
-  }
+  const [linkSent, setLinkSent] = useState<string | undefined>(undefined)
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<RegisterCredentials>()
 
   const onSubmit = handleSubmit(async (credentials) => {
-    await medusaClient.customers
-      .create(credentials)
-      .then(() => {
-        refetchCustomer()
-        router.push("/account")
-      })
-      .catch(handleError)
+    credentials.isSignUp = true
+    const response = await fetch("http://localhost:9000/store/customers/passwordless/sent", {
+        method: "POST",
+        body: JSON.stringify(credentials),
+        headers: { "Content-Type": "application/json" },
+      },
+    )
+
+    if (!response.ok) response.json().then((data) => setAuthError(data.message))
+
+    if (response.ok) setLinkSent("Check your email to activate your account.")
   })
 
   return (
     <div className="max-w-sm flex flex-col items-center mt-12">
-      {isSubmitting && (
-        <div className="z-10 fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center">
-          <Spinner size={24} />
-        </div>
-      )}
-      <h1 className="text-large-semi uppercase mb-6">Become a Printinc Member</h1>
-      <p className="text-center text-base-regular text-gray-700 mb-4">
-        Create your Printinc Member profile, and get access to an enhanced shopping
-        experience.
-      </p>
-      <form className="w-full flex flex-col" onSubmit={onSubmit}>
-        <div className="flex flex-col w-full gap-y-2">
-          <Input
-            label="First name"
-            {...register("first_name", { required: "First name is required" })}
-            autoComplete="given-name"
-            errors={errors}
-          />
-          <Input
-            label="Last name"
-            {...register("last_name", { required: "Last name is required" })}
-            autoComplete="family-name"
-            errors={errors}
-          />
-          <Input
-            label="Email"
-            {...register("email", { required: "Email is required" })}
-            autoComplete="email"
-            errors={errors}
-          />
-          <Input
-            label="Phone"
-            {...register("phone")}
-            autoComplete="tel"
-            errors={errors}
-          />
-          <Input
-            label="Password"
-            {...register("password", {
-              required: "Password is required",
-            })}
-            type="password"
-            autoComplete="new-password"
-            errors={errors}
-          />
-        </div>
-        {authError && (
-          <div>
+      {!linkSent && (
+        <>
+
+          <h1 className="text-large-semi uppercase mb-6">Become a PrintInc Shop Member</h1>
+          <p className="text-center text-base-regular text-gray-700 mb-4">
+            Create your PrintInc Shop profile, and get access to an enhanced shopping
+            experience.
+          </p>
+          <form className="w-full flex flex-col" onSubmit={onSubmit}>
+            <div className="flex flex-col w-full gap-y-2">
+              <Input
+                label="Email"
+                {...register("email", { required: "Email is required" })}
+                autoComplete="email"
+                errors={errors}
+              />
+            </div>
+            {authError && (
+              <div>
             <span className="text-rose-500 w-full text-small-regular">
-              These credentials do not match our records
+              {authError}
             </span>
-          </div>
-        )}
-        <span className="text-center text-gray-700 text-small-regular mt-6">
+              </div>
+            )}
+          <span className="text-center text-gray-700 text-small-regular mt-6">
           By creating an account, you agree to Printinc&apos;s{" "}
           <Link href="/pp" className="underline">
             Privacy Policy
@@ -109,17 +73,27 @@ const Register = () => {
           .
         </span>
         <Button className="mt-6">Join</Button>
-      </form>
-      <span className="text-center text-gray-700 text-small-regular mt-6">
+          </form>
+          <span className="text-center text-gray-700 text-small-regular mt-6">
         Already a member?{" "}
-        <button
-          onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
-          className="underline"
-        >
+            <button
+              onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
+              className="underline"
+            >
           Sign in
         </button>
         .
-      </span>
+      </span></>
+      )}
+
+      {linkSent && (
+        <>
+          <h1 className="text-large-semi uppercase mb-6">Registration complete!</h1>
+          <div className="bg-green-100 text-green-500 p-4 my-4 w-full">
+            <span>{linkSent}</span>
+          </div>
+        </>
+      )}
     </div>
   )
 }
