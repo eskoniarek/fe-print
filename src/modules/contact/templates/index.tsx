@@ -25,9 +25,14 @@ export default function ContactTemplate() {
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-regular">Email</h3>
-                  <Link className="text-slate-700 hover:text-teal-900 underline-offset-2" href="mailto:info@Printinc.com">
-                      support@printinc.shop
+                  <div className="flex items-center space-x-2">
+                    <Link className="text-slate-700 hover:text-teal-900 underline-offset-2" href="mailto:info@Printinc.com">
+                        support@printinc.shop
+                    </Link>
+                    <Link href={`mailto:support@printinc.shop`}>
+                     <Button variant="primary">Get in touch</Button>
                   </Link>
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-regular">Phone</h3>
@@ -39,47 +44,6 @@ export default function ContactTemplate() {
             </div>
             <div className="mt-8 aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md">
               <Map />
-            </div>
-            <div className="space-y-4 mt-12">
-              <h2 className="text-2xl font-medium tracking-tighter">Get in Touch</h2>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-slate-900 dark:text-slate-700" htmlFor="name">
-                    Your Name
-                  </label>
-                  <input
-                    className="mt-1 block w-full rounded-md border-slate-800 bg-white shadow-sm focus:border-slate-600 focus:ring focus:ring-slate-300 focus:ring-opacity-50"
-                    id="name"
-                    name="name"
-                    type="text"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-900 dark:text-slate-700" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    className="mt-1 block w-full rounded-md border-slate-800 bg-white shadow-sm focus:border-slate-600 focus:ring focus:ring-slate-300 focus:ring-opacity-50"
-                    id="email"
-                    name="email"
-                    type="email"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-700" htmlFor="message">
-                    Message
-                  </label>
-                  <textarea
-                    className="mt-1 block w-full rounded-md border-slate-800 bg-white shadow-sm focus:border-slate-600 focus:ring focus:ring-slate-300 focus:ring-opacity-50"
-                    id="message"
-                    name="message"
-                    rows={3}
-                  />
-                </div>
-                <Button className="bg-grey-900 hover:bg-grey-800 text-white px-4 py-2 rounded-md" type="submit">
-                  Submit
-                </Button>
-              </form>
             </div>
           </div>
         </section>

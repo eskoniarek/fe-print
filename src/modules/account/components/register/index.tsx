@@ -108,7 +108,7 @@ const Register = () => {
           </Link>
           .
         </span>
-        <Button className="mt-6">Join</Button>
+        <Button className="mt-6 w-full">Join</Button>
       </form>
       <span className="text-center text-gray-700 text-small-regular mt-6">
         Already a member?{" "}

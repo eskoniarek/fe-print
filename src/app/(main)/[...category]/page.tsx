@@ -10,22 +10,25 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { product_categories } = await getCategoryByHandle(
     params.category
-  ).catch((err) => {
+  ).catch((err: any) => {
+    console.error("Error during getCategoryByHandle in generateMetadata:", err);
     notFound()
   })
 
   const category = product_categories[0]
+  console.log("Category object:", category);
 
   return {
-    title: `${category.name} | Printinc`,
-    description: `${category.name} category`,
+    title: `${category?.name} | Printinc`,
+    description: `${category?.name} category`,
   }
 }
 
 export default async function CategoryPage({ params }: Props) {
   const { product_categories } = await getCategoryByHandle(
     params.category
-  ).catch((err) => {
+  ).catch((err: any) => {
+    console.error("Error during getCategoryByHandle in CategoryPage:", err);
     notFound()
   })
 

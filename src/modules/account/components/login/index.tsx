@@ -3,6 +3,7 @@ import { LOGIN_VIEW, useAccount } from "@lib/context/account-context"
 import Button from "@modules/common/components/button"
 import Input from "@modules/common/components/input"
 import Spinner from "@modules/common/icons/spinner"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FieldValues, useForm } from "react-hook-form"
@@ -72,8 +73,15 @@ const Login = () => {
             </span>
           </div>
         )}
-        <Button className="mt-6">Enter</Button>
+        <Button className="mt-6 w-full">Enter</Button>
       </form>
+      <span className="text-center text-gray-700 text-small-regular mt-6">
+          <Link className="underline text-center text-gray-700 text-small-regular"
+            href="request-reset"
+          >
+            Forgot your password?
+        </Link>        
+      </span>
       <span className="text-center text-gray-700 text-small-regular mt-6">
         Not a member?{" "}
         <button
