@@ -13,21 +13,13 @@ const FooterCTA = () => {
           <br/>
           <h3 className="text-2xl-regular">...or design art by yourself! </h3>
  <div className="mt-6">
-   <UnderlineLink href="https://ai.printinc.shop/">Printinc AI</UnderlineLink>
+   <UnderlineLink href="https://ai.Demo.shop/">Demo AI</UnderlineLink>
  </div>
         </div>
 
         <div className="relative w-full aspect-square small:w-[30%] small:aspect-[28/36]">
-          <Image
-            src="/cta.png"
-            alt="theme"
-            className="absolute inset-0"
-            fill
-            sizes="70vw"
-            style={{
-              objectFit: "cover",
-            }}
-          />
+        <div className="flex justify-center items-center bg-[#1D2B64]">
+</div>
         </div>
       </div>
     </div>

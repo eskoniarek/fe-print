@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   console.log("Category object:", category);
 
   return {
-    title: `${category?.name} | Printinc`,
+    title: `${category?.name} | Demo`,
     description: `${category?.name} category`,
   }
 }

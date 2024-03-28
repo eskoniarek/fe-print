@@ -6,7 +6,7 @@ import { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Shop all available models only at the Printinc. Worldwide Shipping. Secure Payment.",
+    "Shop all available models only at the Demo. Worldwide Shipping. Secure Payment.",
 }
 
 const Home = () => {

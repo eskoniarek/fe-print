@@ -15,21 +15,17 @@ export default function ContactTemplate() {
                 <div className="space-y-2">
                   <h3 className="text-xl font-regular">Address</h3>
                   <p className="text-slate-700 dark:text-slate-700">
-                    APPLIED BUSINESS LTD
-                    Company number 12815106
-
-                    7 Bell Yard, London, 
-                    <br />
-                    England, WC2A 2JR
+                   Demo Company
+                    Company number 
                   </p>
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-regular">Email</h3>
                   <div className="flex items-center space-x-2">
-                    <Link className="text-slate-700 hover:text-teal-900 underline-offset-2" href="mailto:info@Printinc.com">
-                        support@printinc.shop
+                    <Link className="text-slate-700 hover:text-teal-900 underline-offset-2" href="mailto:info@Demo.com">
+                        support@Demo.shop
                     </Link>
-                    <Link href={`mailto:support@printinc.shop`}>
+                    <Link href={`mailto:support@Demo.shop`}>
                      <Button variant="primary">Get in touch</Button>
                   </Link>
                   </div>

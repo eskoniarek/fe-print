@@ -38,7 +38,7 @@ const MainMenu = () => {
           </button>
         </div>
         <div>
-          <h1 className="text-xl-semi uppercase">Printinc</h1>
+          <h1 className="text-xl-semi uppercase">Demo</h1>
         </div>
         <div className="flex-1 basis-0 flex justify-end">
           <button onClick={close}>

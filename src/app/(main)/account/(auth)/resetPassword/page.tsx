@@ -3,7 +3,7 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Password Reset",
-  description: "Reset password for your Printinc account.",
+  description: "Reset password for your Demo account.",
 }
 
 export default function PasswordReset() {

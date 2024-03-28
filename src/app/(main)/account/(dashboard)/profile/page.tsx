@@ -3,7 +3,7 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Profile",
-  description: "View and edit your Printinc profile.",
+  description: "View and edit your Demo profile.",
 }
 
 export default function Profile() {

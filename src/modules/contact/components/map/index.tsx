@@ -18,7 +18,7 @@ export function Map () {
 
             const position = {
                 lat: 51.514399,
-                lng: -0.111823};
+                lng: -1.111823};
 
             const mapOptions: google.maps.MapOptions = {
                 center: position,
