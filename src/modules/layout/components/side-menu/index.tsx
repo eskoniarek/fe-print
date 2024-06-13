@@ -1,4 +1,4 @@
- import Link from "next/link"
+import Link from "next/link"
 import { Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
 import { XMark, ArrowRightMini } from "@medusajs/icons"
@@ -6,12 +6,12 @@ import { Text, clx, useToggleState } from "@medusajs/ui"
 
 const SideMenuItems = {
   Home: "/",
-  Store: "/store",
+  Showcase: "/store",
   About: "/about",
   Contact: "/contact",
- // Search: "",
+  // Search: "",
   Account: "/account",
-  Cart: "/cart",
+  //Cart: "/cart",
 }
 
 const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
@@ -44,14 +44,14 @@ const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
                 leaveFrom="opacity-100 backdrop-blur-2xl"
                 leaveTo="opacity-0"
               >
-                <Popover.Panel className="flex flex-col absolute w-1/3 2xl:w-1/4 h-[calc(100vh-1rem)] z-30 inset-x-0 text-sm text-ui-fg-on-color m-2 backdrop-blur-2xl">
-                  <div className="flex flex-col h-full bg-[rgba(3,7,18,0.5)] rounded-rounded justify-between p-6">
+                <Popover.Panel className="flex flex-col absolute w-80 h-auto z-30 inset-x-0 text-sm text-ui-fg-on-color m-2 backdrop-blur-2xl border-gray-200">
+                  <div className="flex flex-col h-full bg-[rgba(3,7,18,0.5)] rounded-rounded justify-between p-8">
                     <div className="flex justify-end" id="xmark">
                       <button onClick={close}>
                         <XMark />
                       </button>
                     </div>
-                    <ul className="flex flex-col gap-6 items-start justify-start">
+                    <ul className="flex flex-col gap-5 items-start justify-start">
                       {Object.entries(SideMenuItems).map(([name, href]) => {
                         if (
                           name === "Search" &&
@@ -60,7 +60,7 @@ const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
                           return (
                             <li key={name}>
                               <button
-                                className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                                className="text-xl leading-7 hover:text-ui-fg-disabled"
                                 onClick={() => handleSearchClick(close)}
                               >
                                 {name}
@@ -72,7 +72,7 @@ const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
                           <li key={name}>
                             <Link
                               href={href}
-                              className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                              className="text-xl leading-7 hover:text-ui-fg-disabled"
                               onClick={close}
                             >
                               {name}
@@ -81,7 +81,7 @@ const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
                         )
                       })}
                     </ul>
-                    <div className="flex flex-col gap-y-6">
+                    <div className="flex flex-col gap-y-5">
                       <div
                         className="flex justify-between"
                         onMouseEnter={toggleState.open}
@@ -89,7 +89,7 @@ const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
                       >
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} PrintInc. All rights
                         reserved.
                       </Text>
                     </div>

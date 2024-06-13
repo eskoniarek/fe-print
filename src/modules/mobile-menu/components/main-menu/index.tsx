@@ -68,8 +68,8 @@ const MainMenu = () => {
                   className="flex items-center justify-between w-full"
                   onClick={close}
                 >
-                  <span className="sr-only">Go to Store</span>
-                  <span>Store</span>
+                  <span className="sr-only">Go to Showcase</span>
+                  <span>Showcase</span>
                   <ChevronDown className="-rotate-90" />
                 </button>
               </Link>

@@ -91,7 +91,7 @@ const Nav = () => {
               {process.env.FEATURE_SEARCH_ENABLED && <DesktopSearchModal />}
               <Link href="/account">Account</Link>
             </div>
-            <CartDropdown />
+            {/* <CartDropdown /> */}
           </div>
         </nav>
         <MobileMenu />

@@ -6,15 +6,15 @@ const FooterCTA = () => {
     <div className="bg-slate-950 w-70">
       <div className="content-container flex flex-col-reverse gap-y-8 small:flex-row small:items-center justify-between py-16 relative">
         <div className="text-white">
-          <h3 className="text-2xl-semi">Shop the latest designs</h3>
-          <div className="mt-6">
-            <UnderlineLink href="/store">Explore products</UnderlineLink>
-          </div>
-          <br/>
-          <h3 className="text-2xl-regular">...or design art by yourself! </h3>
+          <h3 className="text-2xl-semi">Design art by yourself! </h3>
  <div className="mt-6">
    <UnderlineLink href="https://ai.printinc.shop/">Printinc AI</UnderlineLink>
  </div>
+ <br/>
+ <h3 className="text-2xl-regular">...or get inspired by</h3>
+          <div className="mt-6">
+            <UnderlineLink href="/store">Our Showcase</UnderlineLink>
+          </div>
         </div>
 
         <div className="relative w-full aspect-square small:w-[30%] small:aspect-[28/36]">

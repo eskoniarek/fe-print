@@ -20,9 +20,9 @@ const CartDropdown = () => {
   return (
     <div className="h-full z-50" onMouseEnter={open} onMouseLeave={close}>
       <Popover className="relative h-full">
-        <Popover.Button className="h-full">
+        {/* <Popover.Button className="h-full">
           <Link href="/cart">{`My Bag (${totalItems})`}</Link>
-        </Popover.Button>
+        </Popover.Button> */}
         <Transition
           show={state}
           as={Fragment}
@@ -108,25 +108,25 @@ const CartDropdown = () => {
                       })}
                     </span>
                   </div>
-                  <Link href="/cart" passHref>
+                  {/* <Link href="/cart" passHref>
                     <Button>Go to bag</Button>
-                  </Link>
+                  </Link> */}
                 </div>
               </>
             ) : (
               <div>
                 <div className="flex py-16 flex-col gap-y-4 items-center justify-center">
                   <div className="bg-gray-900 text-small-regular flex items-center justify-center w-6 h-6 rounded-full text-white">
-                    <span>0</span>
+                    {/* <span>0</span> */}
                   </div>
-                  <span>Your shopping bag is empty.</span>
+                  {/* <span>Your shopping bag is empty.</span> */}
                   <div>
-                    <Link href="/store">
+                    {/* <Link href="/store">
                       <>
                         <span className="sr-only">Go to all products page</span>
-                        <Button onClick={close}>Explore products</Button>
+                        <Button onClick={close}>Get Inspired</Button>
                       </>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>

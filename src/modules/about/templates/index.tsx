@@ -38,7 +38,7 @@ export default function ContactTemplate() {
               
               <Button className="mt-2" variant="primary">
               <Link href="https://ai.printinc.shop/">
-                Printinc - Learn More
+                Printinc AI
                 </Link>
               </Button>
             </div>
