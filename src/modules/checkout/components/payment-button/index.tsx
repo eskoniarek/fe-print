@@ -1,5 +1,5 @@
 import { useCheckout } from "@lib/context/checkout-context"
-import { PaymentSession } from "@medusajs/medusa"
+import { PaymentSession, StorePostCartsCartPaymentSessionReq } from "@medusajs/medusa"
 import Button from "@modules/common/components/button"
 import Spinner from "@modules/common/icons/spinner"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
@@ -7,6 +7,9 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
 import { useCart } from "medusa-react"
 import React, { useEffect, useState } from "react"
+import { Cart } from "@medusajs/medusa"
+import { medusaClient } from "@lib/config"
+import order from "@medusajs/medusa/dist/repositories/order"
 
 type PaymentButtonProps = {
   paymentSession?: PaymentSession | null
@@ -53,6 +56,14 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ paymentSession }) => {
       return (
         <PayPalPaymentButton notReady={notReady} session={paymentSession} />
       )
+      case "4g12hs":
+        return (
+          <FourG12hsPaymentButton
+            session={paymentSession}
+            notReady={notReady}
+            cart={cart}
+          />
+        )
     default:
       return <Button disabled>Select a payment method</Button>
   }
@@ -239,5 +250,88 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
     </Button>
   )
 }
+const FourG12hsPaymentButton = ({
+  session,
+  notReady,
+  cart,
+}: {
+  session: PaymentSession
+  notReady: boolean
+  cart?: Omit<Cart, "refundable_amount" | "refunded_total">
+}) => {
+  const [submitting, setSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined)
 
+  const orderData = session.data as Record<string, string>
+
+  const onPaymentCompleted = async () => {
+    await order().catch(() => {
+      setErrorMessage("An error occurred, please try again.")
+      setSubmitting(false)
+    })
+  }
+
+  const getAccountId = () => {
+    const currencyCode = cart?.region.currency_code.toUpperCase()
+
+    switch (currencyCode) {
+      case "USD":
+        return process.env.NEXT_PUBLIC_ACCOUNT_ID_USD
+      case "GBP":
+        return process.env.NEXT_PUBLIC_ACCOUNT_ID_GBP
+      default:
+        return process.env.NEXT_PUBLIC_ACCOUNT_ID
+    }
+  }
+
+  const handlePayment = async () => {
+    setSubmitting(true)
+
+    try {
+      const accountId = getAccountId()
+
+      if (!accountId) {
+        setErrorMessage("Invalid account configuration.")
+        setSubmitting(false)
+        return
+      }
+      // Initialize payment session
+      if (cart?.id) {
+        await medusaClient.carts.setPaymentSession(cart.id, {
+          provider_id: "4g12hs",
+          data: {
+            account_id: accountId,
+          },
+        } as StorePostCartsCartPaymentSessionReq)
+
+      // Complete cart
+      const { data } = await medusaClient.carts.complete(cart?.id)
+
+      if (data && (data as Cart).payment_authorized_at) {
+        onPaymentCompleted()
+      } else {
+        setErrorMessage("An error occurred. Please try again.")
+      }
+    }
+  } catch (error) {
+    console.error(error)
+    setErrorMessage("An error occurred. Please try again.")
+  }
+
+  setSubmitting(false)
+}
+
+  return (
+    <>
+      <Button disabled={submitting || notReady} onClick={handlePayment}>
+        {submitting ? <Spinner /> : "Checkout with 4g12hs"}
+      </Button>
+      {errorMessage && (
+        <div className="text-red-500 text-small-regular mt-2">
+          {errorMessage}
+        </div>
+      )}
+    </>
+  )
+}
 export default PaymentButton
