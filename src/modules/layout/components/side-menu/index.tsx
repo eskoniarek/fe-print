@@ -11,7 +11,7 @@ const SideMenuItems = {
   Contact: "/contact",
   // Search: "",
   Account: "/account",
-  //Cart: "/cart",
+  Cart: "/cart",
 }
 
 const SideMenu = ({ searchModalOpen }: { searchModalOpen: () => void }) => {
